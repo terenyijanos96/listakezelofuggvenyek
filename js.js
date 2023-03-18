@@ -2,13 +2,14 @@ window.addEventListener("load", init);
 const KUTYALISTA=["foxterrier","kuvasz","puli","agár","újfullandi","keverék"]
 
 function init() {
-    const ARTICLE = document.getElementsByName("article");
+    const ARTICLE = document.querySelector("article");
     const GOMB = document.createElement('button');
     GOMB.innerText = ('Kutya');
-    document.body.appendChild(GOMB);
+    ARTICLE.appendChild(GOMB);
+    GOMB.addEventListener("click", function(){gombNyomas(ARTICLE)})
 };
 
-function gombNyomas (){
-    
+function gombNyomas (ARTICLE){
+    ARTICLE.innerHTML += KUTYALISTA[2];
 }
 
