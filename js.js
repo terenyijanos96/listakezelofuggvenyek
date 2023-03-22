@@ -21,8 +21,8 @@ function init() {
   let txt2 = osszeallit2();
   //ARTICLE.innerHTML=txt;
   torlesGomb();
-  const SUBMIT = document.querySelector('aside button')
-  SUBMIT.addEventListener("click", ujKutya)
+  const SUBMIT = document.querySelector("aside button");
+  SUBMIT.addEventListener("click", ujKutya);
 }
 
 /* function gombNyomas (ARTICLE){
@@ -97,7 +97,9 @@ function torlesGomb() {
     TORLES.innerText = "Törlés";
     TR[index].appendChild(TD);
     TD.appendChild(TORLES);
-    TORLES.addEventListener("click", function(){torlesFunkcio(index)});
+    TORLES.addEventListener("click", function () {
+      torlesFunkcio(index);
+    });
   }
 }
 
@@ -108,18 +110,18 @@ function torlesFunkcio(index) {
   torlesGomb();
 }
 
-function ujKutya(){
-  const KUTYA = "";
-  const ADAT = document.querySelectorAll('input');
-  console.log("Vauka")
-  for (let index = 0; index < ADAT.length; index++) {
-    for (const kulcs in KUTYALISTA) {
-      KUTYA += `${kulcs}: ${ADAT[index][kulcs]}`
-    }
-    
+function ujKutya() {
+  let Kutya = {};
+  const ADAT = document.querySelectorAll("input");
+  console.log("Vauka");
+  index = 0;
+  for (const kulcs in KUTYALISTA[index]) {
+    Kutya[kulcs] = `${ADAT[index].value}`;
+    index++;
   }
-  KUTYALISTA.push(KUTYA);
-  console.log(KUTYALISTA)
+
+  KUTYALISTA.push(Kutya);
+  console.log(KUTYALISTA);
   osszeallit2();
   torlesGomb();
 }
